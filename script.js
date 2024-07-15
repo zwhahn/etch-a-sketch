@@ -1,15 +1,17 @@
-const ROWS = 4;
-const COLS = 4;
+const CONTAINER_SIZE = 600;
 
-function createGrid () {
+var gridSize = 4;
+
+function createGrid (gridSize) {
     const gridContainer = document.querySelector('.container');
-    for (i = 0; i < ROWS; i++){
-        for (j = 0; j < COLS; j++){
-            const square = document.createElement("div");
-            square.classList.toggle("square");
-            gridContainer.appendChild(square);
+    gridSizeSquare = gridSize ** 2;
+    for (i = 0; i < gridSizeSquare; i++){
+        const square = document.createElement("div");
+        square.classList.toggle("square");
+        square.style.width = `${100/gridSize}%`;
+        square.style.height = `${100/gridSize}%`;
+        gridContainer.appendChild(square);
         }
-    }
     addHoverEffect();
 }
 
@@ -27,5 +29,16 @@ function addHoverEffect () {
     })
 }
 
+function updateGridSize () {
+    let newGridSize = prompt("Grid Row Size (max 100):","4");
+    console.log(`newGridSize: ${newGridSize}`)
+    const gridContainer = document.querySelector('.container');
+    while (gridContainer.firstChild) {
+        gridContainer.firstChild.remove()
+    }
+    createGrid(newGridSize);
+}
 
-document.addEventListener("DOMContentLoaded", createGrid);
+let updateGridSizeButton = document.querySelector("button") 
+updateGridSizeButton.addEventListener("click", updateGridSize)
+document.addEventListener("DOMContentLoaded", createGrid(gridSize));
