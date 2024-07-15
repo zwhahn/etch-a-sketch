@@ -17,7 +17,7 @@ function addHoverEffect () {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.style.background = "red";
+            square.style.background = "#2a9d8f";
         })
     })
 }
@@ -25,11 +25,11 @@ function addHoverEffect () {
 function updateGridSize () {
     let newGridSize = prompt("Grid Row Size (max 100):","4");
     console.log(`${typeof newGridSize}`)
-    if (newGridSize > 100 || newGridSize <= 0) {
-        alert("Row size is out of range! Please limit to 0-100");
-        return;
-    }
     if (newGridSize === null){
+        return;
+    } 
+    else if (newGridSize > 100 || newGridSize <= 0) {
+        alert("Row size is out of range! Please limit to 0-100");
         return;
     }
     console.log(`newGridSize: ${newGridSize}`)
