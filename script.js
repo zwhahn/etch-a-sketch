@@ -10,6 +10,15 @@ function createGrid () {
             gridContainer.appendChild(square);
         }
     }
+
+    let squareList = document.querySelectorAll('.square');
+    squareList.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.style.background = "blue";
+        })
+    })
 }
 
-document.addEventListener("DOMContentLoaded", createGrid)
+
+
+document.addEventListener("DOMContentLoaded", createGrid);
