@@ -17,11 +17,15 @@ function addHoverEffect () {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.style.background = "blue";
+            square.classList.toggle("square");
+            square.classList.toggle("square-filled");
+        })
+        square.addEventListener("mouseout", () => {
+            square.classList.toggle("square-filled");
+            square.classList.toggle("square");
         })
     })
 }
-
 
 
 document.addEventListener("DOMContentLoaded", createGrid);
