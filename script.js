@@ -17,20 +17,19 @@ function addHoverEffect () {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.classList.toggle("square");
-            square.classList.toggle("square-filled");
-        })
-        square.addEventListener("mouseout", () => {
-            square.classList.toggle("square-filled");
-            square.classList.toggle("square");
+            square.style.background = "red";
         })
     })
 }
 
 function updateGridSize () {
     let newGridSize = prompt("Grid Row Size (max 100):","4");
-    if (newGridSize > 100) {
-        alert("Row size is too big! Please limit to 100 or less");
+    console.log(`${typeof newGridSize}`)
+    if (newGridSize > 100 || newGridSize <= 0) {
+        alert("Row size is out of range! Please limit to 0-100");
+        return;
+    }
+    if (newGridSize === null){
         return;
     }
     console.log(`newGridSize: ${newGridSize}`)

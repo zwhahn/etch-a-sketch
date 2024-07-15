@@ -38,4 +38,10 @@ button {
     margin: 3%;
     font-size: 20px;
     padding: 20px 40px;
+    position: absolute;
+}
+
+h1 {
+    align-self: flex-start;
+    background-color: red;
 }
