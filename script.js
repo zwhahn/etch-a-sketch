@@ -1,5 +1,3 @@
-const CONTAINER_SIZE = 600;
-
 var gridSize = 4;
 
 function createGrid (gridSize) {
@@ -31,6 +29,10 @@ function addHoverEffect () {
 
 function updateGridSize () {
     let newGridSize = prompt("Grid Row Size (max 100):","4");
+    if (newGridSize > 100) {
+        alert("Row size is too big! Please limit to 100 or less");
+        return;
+    }
     console.log(`newGridSize: ${newGridSize}`)
     const gridContainer = document.querySelector('.container');
     while (gridContainer.firstChild) {
