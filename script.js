@@ -10,7 +10,10 @@ function createGrid () {
             gridContainer.appendChild(square);
         }
     }
+    addHoverEffect();
+}
 
+function addHoverEffect () {
     let squareList = document.querySelectorAll('.square');
     squareList.forEach((square) => {
         square.addEventListener("mouseover", () => {
