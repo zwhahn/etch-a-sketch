@@ -16,8 +16,8 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    height: 600px;
-    width: 600px;
+    height: 60%;
+    aspect-ratio: 1/1;
     box-sizing: border-box;
 }
 
