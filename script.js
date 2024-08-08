@@ -29,7 +29,7 @@ function updateGridSize () {
         return;
     } 
     else if (newGridSize > 100 || newGridSize <= 0) {
-        alert("Row size is out of range! Please limit to 0-100");
+        alert("Your imagination is more than this grid can handle! Please limit to 0-100");
         return;
     }
     console.log(`newGridSize: ${newGridSize}`)
@@ -38,8 +38,20 @@ function updateGridSize () {
         gridContainer.firstChild.remove()
     }
     createGrid(newGridSize);
+    gridSize = newGridSize;
 }
 
-let updateGridSizeButton = document.querySelector("button") 
-updateGridSizeButton.addEventListener("click", updateGridSize)
+function clearSquares() {
+    let squareList = document.querySelectorAll('.square');
+    squareList.forEach((square) => {
+        square.style.background = "#fefae0";
+    })
+}
+
 document.addEventListener("DOMContentLoaded", createGrid(gridSize));
+
+let updateGridSizeButton = document.getElementById("change_size"); 
+updateGridSizeButton.addEventListener("click", updateGridSize);
+
+let resetBtn = document.getElementById("reset")
+resetBtn.addEventListener("click", () => clearSquares());
